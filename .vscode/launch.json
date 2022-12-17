@@ -17,14 +17,14 @@
             "type": "go",
             "request": "launch",
             "mode": "auto",
-            "program": "${workspaceFolder}/go-app"
+            "program": "${workspaceFolder}/goapp"
         },
         {
             "type": "node-terminal",
             "name": "React",
             "request": "launch",
             "command": "npm run start",
-            "cwd": "${workspaceFolder}/react-app"
+            "cwd": "${workspaceFolder}/reactapp"
         }
         
     ]
