@@ -1,0 +1,33 @@
+{   
+    "version": "0.2.0",
+
+    "compounds": [
+        {
+            "name": "Go/React",
+            "configurations": [
+                "Go",
+                "React"
+            ]
+        }
+    ],
+
+    "configurations": [
+        {
+            "name": "Go",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "${workspaceFolder}/go-app"
+        },
+        {
+            "type": "node-terminal",
+            "name": "React",
+            "request": "launch",
+            "command": "npm run start",
+            "cwd": "${workspaceFolder}/react-app"
+        }
+        
+    ]
+
+   
+}
