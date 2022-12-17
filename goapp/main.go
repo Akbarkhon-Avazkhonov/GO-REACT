@@ -32,6 +32,11 @@ func main() {
 
 	// Routes
 	r.GET("/", HealthCheck)
+	r.GET("/ping", func(c *gin.Context) {
+		c.JSON(http.StatusOK, gin.H{
+			"message": "pong",
+			})
+		})
 
 	url := ginSwagger.URL("http://localhost:3000/swagger/doc.json") // The url pointing to API definition
 	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler, url))
