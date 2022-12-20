@@ -1,8 +1,12 @@
 import './sass/main.scss';
+import * as React from 'react';
+import Button from '@mui/material/Button';
+
+
 function App() {
   return (
-    <div className="App">
-      <h1>Hello dear :)</h1>
+    <div>
+      <Button variant="contained">Hello World</Button>
     </div>
   );
 }
