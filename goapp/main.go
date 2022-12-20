@@ -11,38 +11,24 @@ import (
   ginSwagger "github.com/swaggo/gin-swagger"
 )
 
-// @title Gin Swagger Example API
-// @version 2.0
-// @description This is a sample server server.
-// @termsOfService http://swagger.io/terms/
+// @title GO REACT API
+// @version 0.1.0
 
-// @contact.name API Support
-// @contact.url http://www.swagger.io/support
-// @contact.email support@swagger.io
 
-// @license.name Apache 2.0
-// @license.url http://www.apache.org/licenses/LICENSE-2.0.html
 
-// @host localhost:3000
-// @BasePath /
-// @schemes http
 func main() {
 	// Gin instance
 	r := gin.New()
 
 	// Routes
 	r.GET("/", HealthCheck)
-	r.GET("/ping", func(c *gin.Context) {
-		c.JSON(http.StatusOK, gin.H{
-			"message": "pong",
-			})
-		})
+	r.GET("/ping", Pong )
 
-	url := ginSwagger.URL("http://localhost:3000/swagger/doc.json") // The url pointing to API definition
+	url := ginSwagger.URL("http://localhost:8000/swagger/doc.json") // The url pointing to API definition
 	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler, url))
 
 	// Start server
-	if err := r.Run(":3000"); err != nil {
+	if err := r.Run(":8000"); err != nil {
 		log.Fatal(err)
 	}
 }
@@ -50,8 +36,8 @@ func main() {
 // HealthCheck godoc
 // @Summary Show the status of server.
 // @Description get the status of server.
-// @Tags root
-// @Accept */*
+// @Tags Root
+// @Accept */ping*
 // @Produce json
 // @Success 200 {object} map[string]interface{}
 // @Router / [get]
@@ -63,3 +49,18 @@ func HealthCheck(c *gin.Context) {
 	c.JSON(http.StatusOK, res)
 }
 
+// Pong godoc
+// @Summary Say pong.
+// @Description Say pong.
+// @Tags Root
+// @Accept */*
+// @Produce json
+// @Success 200 {object} map[string]interface{}
+// @Router /ping [get]
+func Pong (c *gin.Context) {
+	res := map[string]interface{}{
+		"data": "pong",
+	}
+
+	c.JSON(http.StatusOK, res)
+}

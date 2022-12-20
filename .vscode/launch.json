@@ -1,6 +1,6 @@
 {   
     "version": "0.2.0",
-
+    
     "compounds": [
         {
             "name": "Go/React",
@@ -11,10 +11,15 @@
         }
     ],
 
+    
+    
     "configurations": [
+        // swag init -g main.go --output docs/goapp 
+        
         {
             "name": "Go",
             "type": "go",
+            "preLaunchTask": "swagger",
             "request": "launch",
             "mode": "auto",
             "program": "${workspaceFolder}/goapp"
@@ -27,7 +32,9 @@
             "cwd": "${workspaceFolder}/reactapp"
         }
         
+        
     ]
 
+   
    
 }

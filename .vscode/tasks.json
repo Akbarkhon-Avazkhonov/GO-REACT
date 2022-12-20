@@ -1,0 +1,16 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "swagger",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}/goapp"},
+            "command": "swag init -g main.go --output docs/goapp",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
